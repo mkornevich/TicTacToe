@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Игра - крестики нолики</title>
+
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <img src="img/logo.png" alt="Крестики нолики логотип">
+        <div>
+            <span>Крестики-нолики</span>
+            <small>играйте, веселитесь, наслаждайтесь</small>
+        </div>
+    </header>
+
+    <div id="screens">
+
+
+        <div class="screen hide" id="user-config-screen">
+            <div class="card">
+                <div class="card-header">Вход</div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="nickname" class="form-label">Введите ваш ник:</label>
+                        <input type="text" class="form-control" id="nickname" placeholder="Ник">
+                    </div>
+                    <button class="btn btn-primary pull-right js-join">Присоединиться</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="screen hide" id="parties-screen">
+            <div class="clearfix">
+                <h5 class="tag-filter-h5">Фильтрация по тегам</h5>
+                <button class="btn btn-primary btn-sm pull-right mb-2 ml-2 js-new-party">Новая партия</button>
+                <button class="btn btn-outline-primary btn-sm pull-right mb-2 js-filter">Отфильтровать</button>
+            </div>
+
+            <input id="tags-s" type="text"  placeholder="Теги">
+
+
+            <h5 class="d-inline-block">Партии</h5>
+
+            <div class="row parties">
+
+
+                <div class="party-item col col-12 col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Простая игра</h5>
+                            <small>быстрая, интересная, радостная</small>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="row md-2 pb-3">
+                                <div class="col-6">
+                                    <h6>Игрок 1</h6>
+                                    <span class="player1">masimus 5</span>
+                                </div>
+                                <div class="col-6">
+                                    <h6>Игрок 2</h6>
+                                    <span class="player2">nexizer</span>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-outline-primary btn-sm pull-right">Присоединиться</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="screen hide" id="create-party-screen">
+            <div class="card">
+                <div class="card-header">Создание партии</div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="party-name" class="form-label">Название партии:</label>
+                        <input type="text" class="form-control" id="party-name" placeholder="Название">
+                    </div>
+                    <div class="mb-3">
+                        <label for="create-party-tags" class="form-label">Теги:</label>
+                        <input id="create-party-tags" type="text" placeholder="Теги">
+                    </div>
+                    <button class="btn btn-primary pull-right js-create-and-join">Создать и присоединиться</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="screen" id="game-screen">
+
+            <div class="game-wrapper">
+                <div class="clearfix mb-2">
+                    <button class="btn btn-sm btn-danger float-right js-leave">Покинуть игру</button>
+                    <span class="badge rounded-pill bg-warning text-label float-left js-status w-100 mt-2">Ожидание хода соперника...</span>
+                </div>
+                <canvas id="game-canvas" width="500" height="500"></canvas>
+                <div class="clearfix">
+                    <span class="badge bg-primary nick-label float-left js-player1">mkornevich</span>
+                    <span class="badge bg-primary nick-label float-right js-player2">namorins</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="screen hide" id="message-screen">
+            <div class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Сообщение</h5>
+                            <button type="button" class="btn btn-light js-close"><i class="fa fa-close"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="js-message">Такое имя уже существует</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

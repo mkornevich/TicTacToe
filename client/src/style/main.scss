@@ -1,0 +1,186 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
+@import "~@yaireo/tagify/dist/tagify.css";
+
+.wrapper {
+  position: fixed;
+  width: 700px;
+  top: 30px;
+  bottom: 30px;
+  left: calc(50% - (700px / 2));
+  padding: 0;
+  box-shadow: 0 0 15px 1px rgba(34, 60, 80, 0.2);
+  border-radius: 20px;
+  overflow: auto;
+}
+
+@media (max-width: 700px) {
+  .wrapper {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+}
+
+header {
+
+  padding: 10px;
+  background: #f7f7f7;
+  display: flex;
+
+  img {
+    width: 110px;
+    height: 100px;
+    @media (max-width: 700px) {
+      width: 60px;
+      height: 50px;
+    }
+  }
+
+  div {
+    align-self: center;
+    padding-left: 20px;
+
+    & > * {
+      display: block;
+    }
+
+    span {
+      color: black;
+      font-size: 40px;
+      font-weight: bold;
+      @media (max-width: 700px) {
+        font-size: 25px;
+        margin-top: -10px;
+      }
+    }
+
+    small {
+      color: #dc0000;
+      margin: -10px 0 0 3px;
+      font-size: 15px;
+      font-weight: bold;
+      @media (max-width: 700px) {
+        font-size: 13px;
+      }
+    }
+  }
+
+}
+
+#screens {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 120px
+}
+
+.screen {
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  overflow: auto;
+
+  &.hide {
+    display: none;
+  }
+
+}
+
+#parties-screen {
+
+  .tag-filter-h5 {
+    display: inline-block;
+    @media (max-width: 540px) {
+      display: block;
+    }
+  }
+  .party-item {
+    margin-bottom: 30px;
+    .card-title {
+      margin: 0;
+    }
+  }
+}
+
+#game-screen {
+  overflow: auto;
+  .nick-label {
+    font-size: 20px;
+    color: white
+  }
+
+  .text-label {
+    font-size: 16px;
+    background: white;
+    padding: 7px 20px;
+  }
+
+  .game-wrapper {
+    width: 500px;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    @media (max-width: 700px) {
+      width: 100%;
+    }
+
+  }
+  #game-canvas {
+    display: inline-block;
+    background: #f5f5f5;
+  }
+}
+
+#message-screen {
+  background: rgba(0, 0, 0, 0.32);
+  .modal {
+    display: block;
+    position: static;
+  }
+
+  .fa-close {
+    color: #dc0000;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

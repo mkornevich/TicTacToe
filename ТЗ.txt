@@ -1,0 +1,75 @@
+ClientState// userConfig, parties, createParty, game
+
+Экран для ввода никнейма (UserConfigScreen)
+	- Поле для ввода никнейма и кнопка дальше.
+	
+	-> setUserConfig {name: 'mike'}
+
+Экран для выбора партии (PartiesScreen)
+
+	- Кнопка создания партии!!!
+
+	- Выбор тегов по которым фильтровать.
+	- Сначала партии которые без участкика.
+	- Список игр в виде плиток.
+		- Название партии
+		- Теги
+		- Название первого игрока
+		- Название второго игрока
+		- Подсвечен если ожидание
+		- При клике в момент ожидения происходит вход в игру
+		
+	{
+		"id": 1
+		"name": "Simple Game",
+		"tags": ["tag1", "tag2"],
+		"player1": "nick", // false - если нет
+		"player2": "nick",
+	}
+		
+	-> setFilter {tags: [<tag strings>]}
+	-> joinParty {id: "<party id>"}
+	-> startCreateNewParty {}
+	<- setParties {parties: [<parties>]}
+	<- setAllTags {tags: [<tags>]}
+
+Экран для создания партии (CreatePartyScreen)
+	- Поле для ввода названия партии
+	- Поле для ввода тегов партии
+	- Кнопка создать и присоединиться
+	
+	<- setAllTags {tags: [<tags>]}
+	-> createNewParty {tags: [], name: ""}
+
+Экран для игры в крестики нолики (GameScreen)
+	- Кнопка покинуть партию
+	- Отображение название первого и второго игрока.
+	- Отображение чей ход.
+	- Отображение статуса ожидания игры при этом все заблокировано.
+	- Отображение сетки крестиков ноликов.
+	
+	-> setStep() // походить {row: 1, col: 5}
+	-> leaveParty() {}
+	<- updateState // ожидание 2 игрока, ожидание хода, ожидание хода противкика, игра завершена
+	{
+		state: "", 'waitingJoin', 'waitingStep', 'gameFinished'
+		win: {},
+		field: [],
+		you: "player1"
+		whoStep: "player2"
+		player1: "", // false if not
+		player2: "" // false if not
+	}
+	
+	
+Экран показа сообщения (MessageScreen)
+	- Данный окно не на весь экран и он перекрывает предыдущее
+	
+	<- setMessage {message: "hello"}
+	
+	
+Система переключения экранов и окон (ScreensController)
+	- Регистрация и конфигурация screens
+	<- showScreen {screenName: 'userConfigScreen', hidePrev: true}
+	
+	
